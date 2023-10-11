@@ -1,0 +1,12 @@
+{
+  "name": "SNS_SDK_Engine",
+  "short_name": "SNS_SDK_Engine",
+  "id": "com.example.gamename",
+  "description": "",
+  "orientation": "any",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "black",
+  "categories": ["games", "entertainment"],
+  "icons": []
+}
