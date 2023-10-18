@@ -1,7 +1,7 @@
 {
   "name": "SRE: Super RETRO Engine",
   "short_name": "SRE: Super RETRO Engine",
-  "id": "com.example.gamename",
+  "id": "com.lolenterprises.SuperRETROEngine",
   "description": "SRE (Formely SRS_SDK_Engine) is a project made by Doom Arnetes (Leo H always known as bzo)\nIts a Top-View engine, based in Geographic Concepts.\nMade in idk, last edit on 18/10/23",
   "orientation": "any",
   "start_url": "./index.html",
