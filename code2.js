@@ -78,7 +78,7 @@ isConditionTrue_0 = gdjs.evtTools.variable.getVariableString(runtimeScene.getGam
 if (isConditionTrue_0) {
 gdjs.copyArray(runtimeScene.getObjects("GreenButton3"), gdjs.questionVATCode.GDGreenButton3Objects1);
 gdjs.copyArray(runtimeScene.getObjects("NewText2"), gdjs.questionVATCode.GDNewText2Objects1);
-gdjs.copyArray(runtimeScene.getObjects("NewText3"), gdjs.questionVATCode.GDNewText3Objects1);
+gdjs.copyArray(runtimeScene.getObjects("NewText4"), gdjs.questionVATCode.GDNewText4Objects1);
 {for(var i = 0, len = gdjs.questionVATCode.GDNewText2Objects1.length ;i < len;++i) {
     gdjs.questionVATCode.GDNewText2Objects1[i].hide(false);
 }
@@ -86,8 +86,8 @@ gdjs.copyArray(runtimeScene.getObjects("NewText3"), gdjs.questionVATCode.GDNewTe
     gdjs.questionVATCode.GDNewText2Objects1[i].setString(runtimeScene.getGame().getVariables().getFromIndex(0).getAsString());
 }
 }{runtimeScene.getGame().getVariables().getFromIndex(4).setString("1");
-}{for(var i = 0, len = gdjs.questionVATCode.GDNewText3Objects1.length ;i < len;++i) {
-    gdjs.questionVATCode.GDNewText3Objects1[i].hide(false);
+}{for(var i = 0, len = gdjs.questionVATCode.GDNewText4Objects1.length ;i < len;++i) {
+    gdjs.questionVATCode.GDNewText4Objects1[i].hide(false);
 }
 }{for(var i = 0, len = gdjs.questionVATCode.GDGreenButton3Objects1.length ;i < len;++i) {
     gdjs.questionVATCode.GDGreenButton3Objects1[i].hide(false);
@@ -120,7 +120,7 @@ isConditionTrue_0 = gdjs.evtTools.variable.getVariableString(runtimeScene.getGam
 if (isConditionTrue_0) {
 gdjs.copyArray(runtimeScene.getObjects("GreenButton3"), gdjs.questionVATCode.GDGreenButton3Objects1);
 gdjs.copyArray(runtimeScene.getObjects("NewText2"), gdjs.questionVATCode.GDNewText2Objects1);
-gdjs.copyArray(runtimeScene.getObjects("NewText4"), gdjs.questionVATCode.GDNewText4Objects1);
+gdjs.copyArray(runtimeScene.getObjects("NewText3"), gdjs.questionVATCode.GDNewText3Objects1);
 {for(var i = 0, len = gdjs.questionVATCode.GDNewText2Objects1.length ;i < len;++i) {
     gdjs.questionVATCode.GDNewText2Objects1[i].hide(false);
 }
@@ -128,8 +128,8 @@ gdjs.copyArray(runtimeScene.getObjects("NewText4"), gdjs.questionVATCode.GDNewTe
     gdjs.questionVATCode.GDNewText2Objects1[i].setString(runtimeScene.getGame().getVariables().getFromIndex(1).getAsString());
 }
 }{runtimeScene.getGame().getVariables().getFromIndex(4).setString("1");
-}{for(var i = 0, len = gdjs.questionVATCode.GDNewText4Objects1.length ;i < len;++i) {
-    gdjs.questionVATCode.GDNewText4Objects1[i].hide(false);
+}{for(var i = 0, len = gdjs.questionVATCode.GDNewText3Objects1.length ;i < len;++i) {
+    gdjs.questionVATCode.GDNewText3Objects1[i].hide(false);
 }
 }{for(var i = 0, len = gdjs.questionVATCode.GDGreenButton3Objects1.length ;i < len;++i) {
     gdjs.questionVATCode.GDGreenButton3Objects1[i].hide(false);
@@ -162,7 +162,7 @@ isConditionTrue_0 = gdjs.evtTools.variable.getVariableString(runtimeScene.getGam
 if (isConditionTrue_0) {
 gdjs.copyArray(runtimeScene.getObjects("GreenButton3"), gdjs.questionVATCode.GDGreenButton3Objects1);
 gdjs.copyArray(runtimeScene.getObjects("NewText2"), gdjs.questionVATCode.GDNewText2Objects1);
-gdjs.copyArray(runtimeScene.getObjects("NewText4"), gdjs.questionVATCode.GDNewText4Objects1);
+gdjs.copyArray(runtimeScene.getObjects("NewText3"), gdjs.questionVATCode.GDNewText3Objects1);
 {for(var i = 0, len = gdjs.questionVATCode.GDNewText2Objects1.length ;i < len;++i) {
     gdjs.questionVATCode.GDNewText2Objects1[i].hide(false);
 }
@@ -170,8 +170,8 @@ gdjs.copyArray(runtimeScene.getObjects("NewText4"), gdjs.questionVATCode.GDNewTe
     gdjs.questionVATCode.GDNewText2Objects1[i].setString(runtimeScene.getGame().getVariables().getFromIndex(0).getAsString());
 }
 }{runtimeScene.getGame().getVariables().getFromIndex(4).setString("1");
-}{for(var i = 0, len = gdjs.questionVATCode.GDNewText4Objects1.length ;i < len;++i) {
-    gdjs.questionVATCode.GDNewText4Objects1[i].hide(false);
+}{for(var i = 0, len = gdjs.questionVATCode.GDNewText3Objects1.length ;i < len;++i) {
+    gdjs.questionVATCode.GDNewText3Objects1[i].hide(false);
 }
 }{for(var i = 0, len = gdjs.questionVATCode.GDGreenButton3Objects1.length ;i < len;++i) {
     gdjs.questionVATCode.GDGreenButton3Objects1[i].hide(false);
@@ -204,7 +204,7 @@ isConditionTrue_0 = gdjs.evtTools.variable.getVariableString(runtimeScene.getGam
 if (isConditionTrue_0) {
 gdjs.copyArray(runtimeScene.getObjects("GreenButton3"), gdjs.questionVATCode.GDGreenButton3Objects1);
 gdjs.copyArray(runtimeScene.getObjects("NewText2"), gdjs.questionVATCode.GDNewText2Objects1);
-gdjs.copyArray(runtimeScene.getObjects("NewText3"), gdjs.questionVATCode.GDNewText3Objects1);
+gdjs.copyArray(runtimeScene.getObjects("NewText4"), gdjs.questionVATCode.GDNewText4Objects1);
 {for(var i = 0, len = gdjs.questionVATCode.GDNewText2Objects1.length ;i < len;++i) {
     gdjs.questionVATCode.GDNewText2Objects1[i].setString(runtimeScene.getGame().getVariables().getFromIndex(1).getAsString());
 }
@@ -215,8 +215,8 @@ gdjs.copyArray(runtimeScene.getObjects("NewText3"), gdjs.questionVATCode.GDNewTe
 }{for(var i = 0, len = gdjs.questionVATCode.GDGreenButton3Objects1.length ;i < len;++i) {
     gdjs.questionVATCode.GDGreenButton3Objects1[i].hide(false);
 }
-}{for(var i = 0, len = gdjs.questionVATCode.GDNewText3Objects1.length ;i < len;++i) {
-    gdjs.questionVATCode.GDNewText3Objects1[i].hide(false);
+}{for(var i = 0, len = gdjs.questionVATCode.GDNewText4Objects1.length ;i < len;++i) {
+    gdjs.questionVATCode.GDNewText4Objects1[i].hide(false);
 }
 }{runtimeScene.getGame().getVariables().getFromIndex(18).add(1);
 }}
