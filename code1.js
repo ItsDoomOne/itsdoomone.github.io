@@ -75,9 +75,18 @@ gdjs.jogoCode.GDNewText2Objects1= [];
 gdjs.jogoCode.GDNewText2Objects2= [];
 gdjs.jogoCode.GDNewText2Objects3= [];
 gdjs.jogoCode.GDNewText2Objects4= [];
+gdjs.jogoCode.GDNew3DBoxObjects1= [];
+gdjs.jogoCode.GDNew3DBoxObjects2= [];
+gdjs.jogoCode.GDNew3DBoxObjects3= [];
+gdjs.jogoCode.GDNew3DBoxObjects4= [];
+gdjs.jogoCode.GDNewText3Objects1= [];
+gdjs.jogoCode.GDNewText3Objects2= [];
+gdjs.jogoCode.GDNewText3Objects3= [];
+gdjs.jogoCode.GDNewText3Objects4= [];
 
 
-gdjs.jogoCode.asyncCallback11027580 = function (runtimeScene, asyncObjectsList) {
+gdjs.jogoCode.asyncCallback10327716 = function (runtimeScene, asyncObjectsList) {
+gdjs.copyArray(runtimeScene.getObjects("NewText3"), gdjs.jogoCode.GDNewText3Objects2);
 gdjs.copyArray(asyncObjectsList.getObjects("jogador_lixo"), gdjs.jogoCode.GDjogador_9595lixoObjects2);
 
 {for(var i = 0, len = gdjs.jogoCode.GDjogador_9595lixoObjects2.length ;i < len;++i) {
@@ -85,6 +94,9 @@ gdjs.copyArray(asyncObjectsList.getObjects("jogador_lixo"), gdjs.jogoCode.GDjoga
 }
 }{for(var i = 0, len = gdjs.jogoCode.GDjogador_9595lixoObjects2.length ;i < len;++i) {
     gdjs.jogoCode.GDjogador_9595lixoObjects2[i].setY(gdjs.evtTools.variable.getVariableNumber(runtimeScene.getGame().getVariables().getFromIndex(14)));
+}
+}{for(var i = 0, len = gdjs.jogoCode.GDNewText3Objects2.length ;i < len;++i) {
+    gdjs.jogoCode.GDNewText3Objects2[i].getBehavior("Text").setText(runtimeScene.getGame().getVariables().getFromIndex(18).getAsString());
 }
 }}
 gdjs.jogoCode.eventsList0 = function(runtimeScene) {
@@ -96,7 +108,7 @@ gdjs.jogoCode.eventsList0 = function(runtimeScene) {
 {
 const asyncObjectsList = new gdjs.LongLivedObjectsList();
 for (const obj of gdjs.jogoCode.GDjogador_9595lixoObjects1) asyncObjectsList.addObject("jogador_lixo", obj);
-runtimeScene.getAsyncTasksManager().addTask(gdjs.evtTools.runtimeScene.wait(0.05), (runtimeScene) => (gdjs.jogoCode.asyncCallback11027580(runtimeScene, asyncObjectsList)));
+runtimeScene.getAsyncTasksManager().addTask(gdjs.evtTools.runtimeScene.wait(0.05), (runtimeScene) => (gdjs.jogoCode.asyncCallback10327716(runtimeScene, asyncObjectsList)));
 }
 }
 
@@ -743,7 +755,7 @@ isConditionTrue_0 = gdjs.evtTools.object.hitBoxesCollisionTest(gdjs.jogoCode.map
 if (isConditionTrue_0) {
 /* Reuse gdjs.jogoCode.GDjogador_9595lixoObjects2 */
 {runtimeScene.getGame().getVariables().getFromIndex(0).setString("Você está correto! o Centro-Oeste tem 1.612.000 km², e não 1.012.000 km².");
-}{runtimeScene.getGame().getVariables().getFromIndex(1).setString("Você está errado! O centro-Oeste tem como\nárea territorial, 1.612.000 km² segundo IBGE em 2019");
+}{runtimeScene.getGame().getVariables().getFromIndex(1).setString("Você está errado! O centro-Oeste tem como área territorial, 1.612.000 km² segundo IBGE em 2019");
 }{gdjs.evtTools.runtimeScene.replaceScene(runtimeScene, "questionVAT", false);
 }{runtimeScene.getGame().getVariables().getFromIndex(2).setString("A área territorial da região centro-oeste é de : 1.012.000 km² (IBGE, 2019)");
 }{runtimeScene.getGame().getVariables().getFromIndex(3).setNumber(0);
@@ -765,11 +777,11 @@ isConditionTrue_0 = false;
 isConditionTrue_0 = gdjs.evtTools.object.hitBoxesCollisionTest(gdjs.jogoCode.mapOfGDgdjs_9546jogoCode_9546GDQuest_95959595o_959595958Objects2Objects, gdjs.jogoCode.mapOfGDgdjs_9546jogoCode_9546GDjogador_95959595lixoObjects2Objects, false, runtimeScene, false);
 if (isConditionTrue_0) {
 /* Reuse gdjs.jogoCode.GDjogador_9595lixoObjects2 */
-{runtimeScene.getGame().getVariables().getFromIndex(0).setString("Você está errado! São exemplos de atividades\nterciárias: escolas, hospitais, comércios em geral, serviçosfinanceiros e turismo.");
-}{runtimeScene.getGame().getVariables().getFromIndex(1).setString("Você está correto! A economia da região está baseada nas atividades primárias, com destaque para a agricultura e a pecuária.");
+{runtimeScene.getGame().getVariables().getFromIndex(0).setString("Você está correto! A economia da região está baseada nas atividades primárias, com destaque para a agricultura e a pecuária.");
+}{runtimeScene.getGame().getVariables().getFromIndex(1).setString("Você está errado! São exemplos de atividades terciárias: escolas, hospitais, comércios em geral, serviços financeiros e turismo.");
 }{gdjs.evtTools.runtimeScene.replaceScene(runtimeScene, "questionVAT", false);
 }{runtimeScene.getGame().getVariables().getFromIndex(2).setString("A economia da região Centro-Oeste está baseada nas atividades terciárias.");
-}{runtimeScene.getGame().getVariables().getFromIndex(3).setNumber(1);
+}{runtimeScene.getGame().getVariables().getFromIndex(3).setNumber(0);
 }{runtimeScene.getGame().getVariables().getFromIndex(5).setString("pink");
 }{runtimeScene.getGame().getVariables().getFromIndex(14).setNumber((( gdjs.jogoCode.GDjogador_9595lixoObjects2.length === 0 ) ? 0 :gdjs.jogoCode.GDjogador_9595lixoObjects2[0].getPointY("")));
 }{runtimeScene.getGame().getVariables().getFromIndex(13).setNumber((( gdjs.jogoCode.GDjogador_9595lixoObjects2.length === 0 ) ? 0 :gdjs.jogoCode.GDjogador_9595lixoObjects2[0].getPointX("")));
@@ -788,9 +800,9 @@ isConditionTrue_0 = false;
 isConditionTrue_0 = gdjs.evtTools.object.hitBoxesCollisionTest(gdjs.jogoCode.mapOfGDgdjs_9546jogoCode_9546GDQuest_95959595o_959595955Objects2Objects, gdjs.jogoCode.mapOfGDgdjs_9546jogoCode_9546GDjogador_95959595lixoObjects2Objects, false, runtimeScene, false);
 if (isConditionTrue_0) {
 /* Reuse gdjs.jogoCode.GDjogador_9595lixoObjects2 */
-{runtimeScene.getGame().getVariables().getFromIndex(0).setString("Correto! A população do Centro-Oeste é composta por somente 16.504.303 habitantes.");
-}{runtimeScene.getGame().getVariables().getFromIndex(2).setString("A população do Centro-Oeste\né considerada pequena, quando comparada ao total populacional nacional.");
-}{runtimeScene.getGame().getVariables().getFromIndex(1).setString("A região brasileira mais populosa\né a sudeste, com mais de 87 milhões de habitantes.");
+{runtimeScene.getGame().getVariables().getFromIndex(0).setString("Correto! A população do Centro-Oeste é composta por somente 16.504.303 habitantes, representando apenas 8,1% da populução nacional.");
+}{runtimeScene.getGame().getVariables().getFromIndex(2).setString("A população do Centro-Oeste é considerada pequena, quando comparada ao total populacional nacional.");
+}{runtimeScene.getGame().getVariables().getFromIndex(1).setString("Errado! A região centro oeste é somente 8,1% da população brasileira, claramente abaixo da média!.");
 }{gdjs.evtTools.runtimeScene.replaceScene(runtimeScene, "questionVAT", false);
 }{runtimeScene.getGame().getVariables().getFromIndex(3).setNumber(1);
 }{runtimeScene.getGame().getVariables().getFromIndex(5).setString("orange");
@@ -903,7 +915,7 @@ isConditionTrue_0 = false;
 isConditionTrue_0 = gdjs.evtTools.object.hitBoxesCollisionTest(gdjs.jogoCode.mapOfGDgdjs_9546jogoCode_9546GDQuest_95959595o_959595959Objects1Objects, gdjs.jogoCode.mapOfGDgdjs_9546jogoCode_9546GDjogador_95959595lixoObjects1Objects, false, runtimeScene, false);
 if (isConditionTrue_0) {
 /* Reuse gdjs.jogoCode.GDjogador_9595lixoObjects1 */
-{runtimeScene.getGame().getVariables().getFromIndex(0).setString("Correto! O clima da região Centro-Oeste é\npredominantemente Tropical. Há na região, ainda, a ocorrência\ndo tipo climático Equatorial, no norte do Mato Grosso.");
+{runtimeScene.getGame().getVariables().getFromIndex(0).setString("Correto! O clima da região Centro-Oeste é predominantemente Tropical. Há na região, ainda, a ocorrência do tipo climático Equatorial, no norte do Mato Grosso.");
 }{runtimeScene.getGame().getVariables().getFromIndex(1).setString("Você está errado! O clima da região Centro-Oeste é predominantemente Tropical. Há na região, ainda, a ocorrência do tipo climático Equatorial, no norte do Mato Grosso.");
 }{gdjs.evtTools.runtimeScene.replaceScene(runtimeScene, "questionVAT", false);
 }{runtimeScene.getGame().getVariables().getFromIndex(2).setString("O clima da região centro oeste é predominantemente\ndesértico.");
@@ -1035,6 +1047,26 @@ gdjs.copyArray(runtimeScene.getObjects("NewText2"), gdjs.jogoCode.GDNewText2Obje
 }
 
 
+{
+
+
+let isConditionTrue_0 = false;
+{
+}
+
+}
+
+
+{
+
+
+let isConditionTrue_0 = false;
+{
+}
+
+}
+
+
 };
 
 gdjs.jogoCode.func = function(runtimeScene) {
@@ -1116,6 +1148,14 @@ gdjs.jogoCode.GDNewText2Objects1.length = 0;
 gdjs.jogoCode.GDNewText2Objects2.length = 0;
 gdjs.jogoCode.GDNewText2Objects3.length = 0;
 gdjs.jogoCode.GDNewText2Objects4.length = 0;
+gdjs.jogoCode.GDNew3DBoxObjects1.length = 0;
+gdjs.jogoCode.GDNew3DBoxObjects2.length = 0;
+gdjs.jogoCode.GDNew3DBoxObjects3.length = 0;
+gdjs.jogoCode.GDNew3DBoxObjects4.length = 0;
+gdjs.jogoCode.GDNewText3Objects1.length = 0;
+gdjs.jogoCode.GDNewText3Objects2.length = 0;
+gdjs.jogoCode.GDNewText3Objects3.length = 0;
+gdjs.jogoCode.GDNewText3Objects4.length = 0;
 
 gdjs.jogoCode.eventsList9(runtimeScene);
 
