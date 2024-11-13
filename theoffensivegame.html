@@ -13,7 +13,7 @@
     }
     
     .container {
-      display: none; /* Initially hidden until login */
+      display: flex;
       gap: 20px;
       background: transparent;
       padding: 20px;
@@ -21,7 +21,7 @@
       align-items: stretch;
     }
     
-    .matchmaking-section {
+    .login-section, .matchmaking-section {
       flex: 1;
       background: #1e1e1e;
       padding: 30px;
@@ -29,12 +29,12 @@
       box-shadow: 0 8px 32px rgba(0,0,0,0.3);
     }
 
-    .matchmaking-section h2 {
+    .login-section h2, .matchmaking-section h2 {
       color: #ff3333;
       text-align: center;
     }
-
-    .profile-section {
+    
+    .profile-section, .connect-section {
       background: #252525;
       padding: 20px;
       border-radius: 15px;
@@ -164,6 +164,7 @@
       object-fit: cover;
     }
 
+    /* Add to existing CSS */
     .login-overlay {
       position: fixed;
       top: 0;
@@ -195,61 +196,6 @@
       width: 100%;
       margin-top: 20px;
     }
-
-    /* Add new styles for room lobby */
-    .room-lobby {
-      background: #1e1e1e;
-      padding: 30px;
-      border-radius: 20px;
-      box-shadow: 0 8px 32px rgba(0,0,0,0.3);
-      display: none;
-    }
-
-    .settings-panel {
-      background: #252525;
-      padding: 20px;
-      border-radius: 15px;
-      margin-top: 20px;
-    }
-
-    .settings-panel h3 {
-      color: #ff3333;
-      margin-top: 0;
-    }
-
-    .setting-item {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin: 10px 0;
-    }
-
-    .setting-item label {
-      color: #fff;
-    }
-
-    .setting-item input[type="number"] {
-      width: 80px;
-      padding: 5px;
-      border-radius: 5px;
-      border: 1px solid #444;
-      background: #333;
-      color: white;
-    }
-
-    .lobby-buttons {
-      display: flex;
-      gap: 10px;
-      margin-top: 20px;
-    }
-
-    .leave-btn {
-      background: #ff3333;
-    }
-
-    #settings-btn {
-      background: #444;
-    }
   </style>
 </head>
 <body>
@@ -272,6 +218,24 @@
   </div>
 </div>
 <div class="container">
+  <div class="login-section">
+    <h2>Profile</h2>
+    <div class="profile-section">
+      <div class="profile-picture">
+        <label for="profile-upload">
+          <div class="avatar-placeholder">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <circle cx="12" cy="8" r="5"/>
+              <path d="M3 20c0-4 4-8 9-8s9 4 9 8"/>
+            </svg>
+          </div>
+        </label>
+        <input type="file" id="profile-upload" accept="image/*" style="display:none">
+      </div>
+      <input type="text" id="player-name" placeholder="Enter your name">
+    </div>
+  </div>
+
   <div class="matchmaking-section">
     <h2>Join Game</h2>
     <div class="connect-section">
@@ -284,33 +248,6 @@
       Waiting for players...
     </div>
     <button id="start-game-btn" class="start-game">Start Game</button>
-  </div>
-</div>
-
-<div class="room-lobby" id="room-lobby">
-  <h2>Game Lobby</h2>
-  <div class="player-list" id="lobby-players"></div>
-  
-  <div class="lobby-buttons">
-    <button id="settings-btn">Settings</button>
-    <button id="leave-btn" class="leave-btn">Leave Room</button>
-    <button id="start-lobby-game" class="start-game">Start Game</button>
-  </div>
-
-  <div class="settings-panel" id="settings-panel" style="display:none">
-    <h3>Game Settings</h3>
-    <div class="setting-item">
-      <label>Number of Rounds:</label>
-      <input type="number" id="rounds-setting" min="1" max="10" value="5">
-    </div>
-    <div class="setting-item">  
-      <label>Time per Round (seconds):</label>
-      <input type="number" id="time-setting" min="30" max="120" value="60">
-    </div>
-    <div class="setting-item">
-      <label>Points per Vote:</label>
-      <input type="number" id="points-setting" min="1" max="5" value="1">
-    </div>
   </div>
 </div>
 
@@ -340,12 +277,7 @@ let gameState = {
   answers: {},
   votes: {},
   hostId: null,
-  scores: {},
-  settings: {
-    rounds: 5,
-    timePerRound: 60,
-    pointsPerVote: 1
-  }
+  scores: {}
 };
 
 let myId = null;
@@ -431,7 +363,24 @@ document.getElementById('login-submit').addEventListener('click', () => {
   myName = name;
   nameSelected = true;
   document.getElementById('login-overlay').style.display = 'none';
-  document.querySelector('.container').style.display = 'flex'; // Show matchmaking after login
+  document.getElementById('player-name').value = name;
+});
+
+document.getElementById('player-name').addEventListener('input', (e) => {
+  myName = e.target.value.trim() || '';
+  if (peer && !isHost) {
+    const hostConn = connections[gameState.hostId];
+    if (hostConn && hostConn.open) {
+      hostConn.send({
+        type: 'updateName',
+        playerId: myId,
+        playerName: myName || 'Player'
+      });
+    }
+  } else if (isHost) {
+    gameState.players[myId].name = myName || 'Player';
+    broadcastGameState();
+  }
 });
 
 document.getElementById('profile-upload').addEventListener('change', function(e) {
@@ -476,7 +425,6 @@ document.getElementById('create-room').addEventListener('click', () => {
     };
     gameState.scores[roomCode] = 0;
     document.getElementById('my-code').textContent = `Room Code: ${roomCode}`;
-    showLobby();
     updateUI();
   });
 
@@ -552,7 +500,7 @@ document.getElementById('join-room').addEventListener('click', () => {
       connections[roomCode].on('data', (data) => {
         handleGameMessage(data, conn.peer);
       });
-      showLobby();
+      startGame();
     });
     
     conn.on('close', () => {
@@ -568,59 +516,7 @@ document.getElementById('join-room').addEventListener('click', () => {
   });
 });
 
-document.getElementById('leave-btn').addEventListener('click', () => {
-  if(peer) {
-    peer.destroy();
-  }
-  peer = null;
-  connections = {};
-  isHost = false;
-  gameState = {
-    phase: 'waiting',
-    players: {},
-    currentRound: 0,
-    acronym: '',
-    answers: {},
-    votes: {},
-    hostId: null,
-    scores: {},
-    settings: {
-      rounds: 5,
-      timePerRound: 60,
-      pointsPerVote: 1
-    }
-  };
-  document.getElementById('room-lobby').style.display = 'none';
-  document.querySelector('.container').style.display = 'flex';
-});
-
-document.getElementById('settings-btn').addEventListener('click', () => {
-  const panel = document.getElementById('settings-panel');
-  panel.style.display = panel.style.display === 'none' ? 'block' : 'none';
-});
-
-document.getElementById('rounds-setting').addEventListener('change', (e) => {
-  if(isHost) {
-    gameState.settings.rounds = parseInt(e.target.value);
-    broadcastGameState();
-  }
-});
-
-document.getElementById('time-setting').addEventListener('change', (e) => {
-  if(isHost) {
-    gameState.settings.timePerRound = parseInt(e.target.value);
-    broadcastGameState();
-  }
-});
-
-document.getElementById('points-setting').addEventListener('change', (e) => {
-  if(isHost) {
-    gameState.settings.pointsPerVote = parseInt(e.target.value);
-    broadcastGameState();
-  }
-});
-
-document.getElementById('start-lobby-game').addEventListener('click', () => {
+document.getElementById('start-game-btn').addEventListener('click', () => {
   if (isHost) {
     startGame();
   }
@@ -640,9 +536,19 @@ function startGame() {
     broadcastGameState();
   }
   
-  document.getElementById('room-lobby').style.display = 'none';
+  document.querySelector('.container').style.display = 'none';
   document.querySelector('.game-container').style.display = 'block';
   updateUI();
+}
+
+function generateAcronym() {
+  const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  const length = 3 + Math.floor(Math.random() * 2);
+  let result = '';
+  for (let i = 0; i < length; i++) {
+    result += letters.charAt(Math.floor(Math.random() * letters.length));
+  }
+  return result;
 }
 
 function startNewRound() {
@@ -660,7 +566,7 @@ function startNewRound() {
       broadcastGameState();
       updateUI();
     }
-  }, gameState.settings.timePerRound * 1000);
+  }, 60000);
 }
 
 function checkAllAnswersSubmitted() {
@@ -715,9 +621,9 @@ function broadcastGameState() {
 }
 
 function updateUI() {
-  const lobbyPlayerList = document.getElementById('lobby-players');
-  if (lobbyPlayerList) {
-    lobbyPlayerList.innerHTML = Object.values(gameState.players).map(player => {
+  const playerList = document.getElementById('players');
+  if (playerList) {
+    playerList.innerHTML = Object.values(gameState.players).map(player => {
       const score = gameState.scores[player.id] || 0;
       const isHostPlayer = player.id === gameState.hostId;
       return `
@@ -730,7 +636,7 @@ function updateUI() {
     }).join('');
   }
 
-  const startGameBtn = document.getElementById('start-lobby-game');
+  const startGameBtn = document.getElementById('start-game-btn');
   if (startGameBtn) {
     startGameBtn.style.display = isHost && gameState.phase === 'waiting' ? 'block' : 'none';
   }
@@ -814,12 +720,6 @@ function submitVote(votedForId) {
     }
   }
   updateUI();
-}
-
-function showLobby() {
-  document.querySelector('.container').style.display = 'none';
-  document.getElementById('room-lobby').style.display = 'block';
-  document.querySelector('.game-container').style.display = 'none';
 }
 </script>
 </body>
