@@ -1,0 +1,12 @@
+{
+  "name": "Project X1",
+  "short_name": "Project X1",
+  "id": "com.example.gamename",
+  "description": "Project X1, 1st prototype of unnamed game\nBy Melo & potato_mythic_",
+  "orientation": "any",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "black",
+  "categories": ["games", "entertainment"],
+  "icons": []
+}
