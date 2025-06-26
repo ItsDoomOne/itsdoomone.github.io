@@ -1,0 +1,27 @@
+Here's a way of forwarding iOS's and Android's microphones to Linux.
+In this guide, i'm using Fedora 42 which uses PipeWire.
+Firstly, install Flatpak and pavucontrol.
+Generally, its something like
+'sudo dnf install flatpak pavucontrol'
+'sudo apt install flatpak pavucontrol'
+'sudo pacman -S flatpak pavucontrol'
+
+Point is: install that stuff
+
+After that, add flathub support.
+Search up your distro here and follow the guide: https://flathub.org/setup
+Generally its something like 'flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo'
+With flathub added, run 'flatpak install flathub net.sonobus.SonoBus'
+It will install SonoBus, it uses P2P (peer-to-peer) to forward audio. Like a voicecall.
+Also install it on your phone.
+
+After that, create a virtual device:
+
+pactl load-module module-null-sink sink_name=SonoBus sink_properties=device.description=SonoBus
+pactl load-module module-remap-source master=virtualmic-sink.monitor source_name=SonoBus source_properties=device.description=Sonobus
+
+After that, open SonoBus and set it up. Create a group and enter it in both devices. Mute yourself on the PC.
+Later, open pavucontrol and forward the output from sonobus to the virtual device. 
+And finally, choose SonoBus as input for the app you want.
+
+
