@@ -1,219 +1,187 @@
-<html>
-<meta property="og:title" content="Doom's Hub" />
-<meta property="og:description" content="About me, Doom" />
-<meta property="og:image" content="/img/indexhtml.png" />
-<meta property="og:url" content="https://doom.is-a.dev/" />
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <base href="https://itsdoomone.github.com/">
-    <title>Welcome to Doom's Homepage</title>
-    <style>
-        body {
-            background: #000000 url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h2v2H0z' fill='%23ffffff' fill-opacity='0.1'/%3E%3C/svg%3E");
-            color: #00ff00;
-            font-family: "Comic Sans MS", cursive;
-            margin: 0;
-            padding: 20px;
-        }
-
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            background: rgba(0,0,0,0.8);
-            border: 3px solid #ff00ff;
-            padding: 20px;
-            box-shadow: 10px 10px 0 #00ffff;
-        }
-
-        .language-selector {
-            text-align: center;
-            font-family: "Comic Sans MS", cursive;
-            margin-bottom: 20px;
-        }
-
-        .language-selector span {
-            padding: 10px;
-            cursor: pointer;
-        }
-
-        .language-selector .selected {
-            color: green;
-        }
-
-        .language-selector .unselected {
-            color: red;
-        }
-
-        .counter {
-            text-align: center;
-            color: #ff00ff;
-            margin: 20px 0;
-        }
-
-        .links a {
-            color: #00ffff;
-            text-decoration: none;
-            display: block;
-            margin: 10px 0;
-        }
-
-        .links a:hover {
-            color: #ff00ff;
-            text-decoration: underline;
-        }
-
-        .guestbook {
-            border: 2px dashed #00ff00;
-            padding: 10px;
-            margin: 20px 0;
-        }
-
-        .flames {
-            text-align: center;
-            font-size: 30px;
-        }
-
-        @keyframes flicker {
-            0% { text-shadow: 0 0 10px #ff0000, 0 0 20px #ff8800; }
-            50% { text-shadow: 0 0 15px #ff4400, 0 0 25px #ffaa00; }
-            100% { text-shadow: 0 0 10px #ff0000, 0 0 20px #ff8800; }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta property="og:title" content="Doom's Hub" />
+  <meta property="og:description" content="About me, Doom" />
+  <meta property="og:image" content="/img/indexhtml.png" />
+  <meta property="og:url" content="https://doom.is-a.dev/" />
+  <base href="https://itsdoomone.github.com/">
+  <title>Welcome to Doom's Homepage</title>
+  <style>
+    body {
+      background: #000 url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h2v2H0z' fill='%23fff' fill-opacity='0.1'/%3E%3C/svg%3E");
+      color: #0f0;
+      font-family: "Comic Sans MS", cursive;
+      margin: 0;
+      padding: 20px;
+    }
+    .container {
+      max-width: 800px;
+      margin: auto;
+      background: rgba(0, 0, 0, 0.8);
+      border: 3px solid #f0f;
+      padding: 20px;
+      box-shadow: 10px 10px 0 #0ff;
+    }
+    .language-selector {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .language-selector span {
+      padding: 10px;
+      cursor: pointer;
+    }
+    .selected { color: green; }
+    .unselected { color: red; }
+    .counter {
+      text-align: center;
+      color: #f0f;
+      margin: 20px 0;
+    }
+    .links a {
+      color: #0ff;
+      text-decoration: none;
+      display: block;
+      margin: 10px 0;
+    }
+    .links a:hover {
+      color: #f0f;
+      text-decoration: underline;
+    }
+    .guestbook {
+      border: 2px dashed #0f0;
+      padding: 10px;
+      margin: 20px 0;
+    }
+    .flames {
+      text-align: center;
+      font-size: 30px;
+    }
+    @keyframes flicker {
+      0% { text-shadow: 0 0 10px #f00, 0 0 20px #f80; }
+      50% { text-shadow: 0 0 15px #f40, 0 0 25px #fa0; }
+      100% { text-shadow: 0 0 10px #f00, 0 0 20px #f80; }
+    }
+  </style>
 </head>
 <body>
-
-    <div class="container">
-        <!-- Language Selector -->
-        <div class="language-selector">
-            <span id="english" class="selected" onclick="switchLanguage('en')">english</span> |
-            <span id="portuguese" class="unselected" onclick="switchLanguage('pt')">portugues</span>
-        </div>
-
-        <div class="flames" id="flames-text">welcome to doom hub</div>
-
-        <center>
-            <svg width="200" height="50">
-                <defs>
-                    <linearGradient id="rainbow" x1="0%" y1="0%" x2="100%" y1="0%">
-                        <stop offset="0%" style="stop-color:#ff0000"/>
-                        <stop offset="33%" style="stop-color:#00ff00"/>
-                        <stop offset="67%" style="stop-color:#0000ff"/>
-                        <stop offset="100%" style="stop-color:#ff0000"/>
-                    </linearGradient>
-                </defs>
-                <text x="45" y="35" fill="url(#rainbow)" font-family="Comic Sans MS" font-size="24px" id="about-me-title">
-                    about me
-                </text>
-            </svg>
-        </center>
-
-        <p id="about-me">im a programmer (python), scripter (batch) and i do frontend. me and my friend ink own an organization called doomink, that makes minecraft mods, resource packs, modpacks, microapps and scripts. as you can see clearly in this page, im allergic to higher-case letters because yes. a little more about me down here</p>
-
-        <p id="likes-title">i like:</p>
-        <ul>
-            <li id="il1">💾 linux</li>
-            <li id="il2">🎮 minecraft</li>
-            <li id="il3">🎵 weezer, rah band, jamiroquai and switchfoot</li>
-            <li id="il4">📺 psych</li>
-            <li id="il5">💾 commodore 64 and other 8 bit computers</li>
-        </ul>
-
-        <p id="facts-title">little facts about me:</p>
-        <ul>
-            <li id="lf1">ink and reclic are my best friend</li>
-            <li id="lf2">¯\_(ツ)_/¯</li>
-            <li id="lf3">catholic</li>
-            <li id="lf4">im from brazil</li>
-            <li id="lf5">im fluent in portuguese and english</li>
-        </ul>
-
-        <div class="links">
-            <h3 id="links-title">links that i like to put in my page but i dont really care about them because this website is more about me than other pages </h3>
-            <a href="https://github.com/ItsDoomOne" id="github-link">my github</a>
-            <a href="https://github.com/orgs/DoomInkInc/repositories" id="doomink-github-link">doomink github</a>
-            <a href="https://modrinth.com/organization/DoomInkInc" id="doomink-modrinth-link">doomink modrinth page</a>
-            <a href="https://www.youtube.com/watch?v=xvFZjo5PgG0" id="youtube-link">youtube channel</a>
-            <a href="https://itsdoomone.github.io/theoffensivegame.html" id="tog">the offensive game</a>
-        </div>
+  <div class="container">
+    <div class="language-selector">
+      <span id="english" class="selected" onclick="switchLanguage('en')">english</span> |
+      <span id="portuguese" class="unselected" onclick="switchLanguage('pt')">portugues</span>
     </div>
 
-    <p id="lt">i play uno</p>
-    <script>
-        function switchLanguage(lang) {
-            // Get the language selector spans
-            const englishSpan = document.getElementById('english');
-            const portugueseSpan = document.getElementById('portuguese');
+    <div class="flames" id="flames-text">welcome to doom hub</div>
 
-            
-            const enText = {
-                "flames-text": "welcome to doom hub",
-                "about-me-title": "about me",
-                "about-me": "im a programmer (python), scripter (batch) and i do frontend. me and my friend ink own an organization called doomink, that makes minecraft mods, resource packs, modpacks, microapps and scripts. as you can see clearly in this page, im allergic to higher-case letters because yes. a little more about me down here",
-                "likes-title": "i like:",
-                "links-title": "links that i like to put in my page but i dont really care about them because this website is more about me than other pages",
-                "facts-title": "little facts about me:",
-                "github-link": "my github",
-                "doomink-github-link": "doomink github",
-                "doomink-modrinth-link": "doomink modrinth page",
-                "youtube-link": "youtube channel",
-                "lf1": "ink and reclic are my best friends",
-                "lf2": "¯\_(ツ)_/¯",
-                "lf3": "catholic",
-                "lf4": "im from brazil",
-                "lf5": "im fluent in portuguese and english",
-                "il1": "💾 linux",
-                "il2": "🎮 minecraft",
-                "il3": "🎵 weezer, rah band, jamiroquai and switchfoot",
-                "il4": "📺 psych",
-                "il5": "💾 commodore 64 and other 8 bit computers",
-                "lt": "made by me bcz bored",
-                "tog": "the offensive game",
-            };
+    <center>
+      <svg width="200" height="50">
+        <defs>
+          <linearGradient id="rainbow" x1="0%" y1="0%" x2="100%" y1="0%">
+            <stop offset="0%" style="stop-color:#f00"/>
+            <stop offset="33%" style="stop-color:#0f0"/>
+            <stop offset="67%" style="stop-color:#00f"/>
+            <stop offset="100%" style="stop-color:#f00"/>
+          </linearGradient>
+        </defs>
+        <text x="45" y="35" fill="url(#rainbow)" font-family="Comic Sans MS" font-size="24px" id="about-me-title">
+          about me
+        </text>
+      </svg>
+    </center>
 
-           
-            const ptText = {
-                "flames-text": "bem-vindo ao site do doom",
-                "about-me-title": "sobre mim",
-                "about-me": "sou um programador (python), scripter (batch) e faço frontend. eu e meu amigo ink temos uma organização chamada doomink, fazemos mods para minecraft, texturas, modpacks, microapps e scripts. como você pode ver claramente nesta pagina, sou alergico a letras maiusculas e acentos porque sim. um pouco mais sobre mim abaixo",
-                "likes-title": "eu gosto de:",
-                "facts-title": "fatos sobre mim:",
-                "links-title": "links que eu gosto de colocar na minha pagina mas eu nao me importo com eles por causa que esse site e mais sobre mim do que as outras paginas",
-                "github-link": "meu github",
-                "doomink-github-link": "github da doomink",
-                "doomink-modrinth-link": "modrinth da doomink",
-                "youtube-link": "canal do youtube",
-                "lf1": "meus melhores amigos são o ink e o reclic",
-                "lf2": "¯\_(ツ)_/¯",
-                "lf3": "catolico",
-                "lf4": "sou do brasil",
-                "lf5": "sou fluente em portugues e ingles",
-                "il1": "💾 linux",
-                "il2": "🎮 minecraft",
-                "il3": "🎵 weezer, rah band, jamiroquai e switchfoot",
-                "il4": "📺 psych",
-                "il5": "💾 commodore 64 e outros computadores de 8 bits",
-                "lt": "feito por mim por tedio",
-                "tog": "o jogo ofensivo (somente inglês)",
-            };
+    <p id="about-me">im a programmer (python)...</p>
 
-            const textToUse = lang === 'pt' ? ptText : enText;
+    <p id="likes-title">i like:</p>
+    <ul>
+      <li id="il1">💾 linux</li>
+      <li id="il2">🎮 minecraft</li>
+      <li id="il3">🎵 weezer, rah band, jamiroquai and switchfoot</li>
+      <li id="il4">📺 psych</li>
+      <li id="il5">💾 commodore 64 and other 8 bit computers</li>
+    </ul>
 
-            for (const [key, value] of Object.entries(textToUse)) {
-                document.getElementById(key).textContent = value;
-            }
+    <p id="facts-title">little facts about me:</p>
+    <ul>
+      <li id="lf1">ink and reclic are my best friend</li>
+      <li id="lf2">¯\_(ツ)_/¯</li>
+      <li id="lf3">catholic</li>
+      <li id="lf4">im from brazil</li>
+      <li id="lf5">im fluent in portuguese and english</li>
+    </ul>
 
-            if (lang === 'en') {
-                englishSpan.classList.add('selected');
-                englishSpan.classList.remove('unselected');
-                portugueseSpan.classList.add('unselected');
-                portugueseSpan.classList.remove('selected');
-            } else {
-                portugueseSpan.classList.add('selected');
-                portugueseSpan.classList.remove('unselected');
-                englishSpan.classList.add('unselected');
-                englishSpan.classList.remove('selected');
-            }
-        }
-    </script>
+    <div class="links">
+      <h3 id="links-title">links that i like to put in my page...</h3>
+      <a href="https://github.com/ItsDoomOne" id="github-link">my github</a>
+      <a href="https://github.com/orgs/DoomInkInc/repositories" id="doomink-github-link">doomink github</a>
+      <a href="https://modrinth.com/organization/DoomInkInc" id="doomink-modrinth-link">doomink modrinth page</a>
+      <a href="https://www.youtube.com/watch?v=xvFZjo5PgG0" id="youtube-link">youtube channel</a>
+      <a href="https://doom.is-a.dev/games/theoffensivegame.html" id="tog">the offensive game</a>
+    </div>
+  </div>
 
+  <p id="lt">i play uno</p>
+
+  <script>
+    function switchLanguage(lang) {
+      const enText = {
+        "flames-text": "welcome to doom hub",
+        "about-me-title": "about me",
+        "about-me": "im a programmer (python)...",
+        "likes-title": "i like:",
+        "facts-title": "little facts about me:",
+        "links-title": "links that i like to put in my page...",
+        "github-link": "my github",
+        "doomink-github-link": "doomink github",
+        "doomink-modrinth-link": "doomink modrinth page",
+        "youtube-link": "youtube channel",
+        "lf1": "ink and reclic are my best friends",
+        "lf2": "¯\\_(ツ)_/¯",
+        "lf3": "catholic",
+        "lf4": "im from brazil",
+        "lf5": "im fluent in portuguese and english",
+        "il1": "💾 linux",
+        "il2": "🎮 minecraft",
+        "il3": "🎵 weezer, rah band, jamiroquai and switchfoot",
+        "il4": "📺 psych",
+        "il5": "💾 commodore 64 and other 8 bit computers",
+        "lt": "made by me bcz bored",
+        "tog": "the offensive game"
+      };
+
+      const ptText = {
+        "flames-text": "bem-vindo ao site do doom",
+        "about-me-title": "sobre mim",
+        "about-me": "sou um programador (python)...",
+        "likes-title": "eu gosto de:",
+        "facts-title": "fatos sobre mim:",
+        "links-title": "links que eu gosto de colocar...",
+        "github-link": "meu github",
+        "doomink-github-link": "github da doomink",
+        "doomink-modrinth-link": "modrinth da doomink",
+        "youtube-link": "canal do youtube",
+        "lf1": "meus melhores amigos são o ink e o reclic",
+        "lf2": "¯\\_(ツ)_/¯",
+        "lf3": "catolico",
+        "lf4": "sou do brasil",
+        "lf5": "sou fluente em portugues e ingles",
+        "il1": "💾 linux",
+        "il2": "🎮 minecraft",
+        "il3": "🎵 weezer, rah band, jamiroquai e switchfoot",
+        "il4": "📺 psych",
+        "il5": "💾 commodore 64 e outros computadores de 8 bits",
+        "lt": "feito por mim por tedio",
+        "tog": "o jogo ofensivo (somente inglês)"
+      };
+
+      const textSet = lang === 'pt' ? ptText : enText;
+      for (const id in textSet) {
+        document.getElementById(id).textContent = textSet[id];
+      }
+
+      document.getElementById('english').className = lang === 'en' ? 'selected' : 'unselected';
+      document.getElementById('portuguese').className = lang === 'pt' ? 'selected' : 'unselected';
+    }
+  </script>
 </body>
 </html>
