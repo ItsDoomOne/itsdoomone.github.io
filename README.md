@@ -11,4 +11,4 @@ Stuff on public domain\
 
 ## Relevant Info
 Some pages are work in progress, mostly pages in the new/ folder.\
-Working on a new website, enhanced and prettier (the 90s do not fit me, atleast not the website designs)\
+Working on a new website, enhanced and prettier (the 90s do not fit me, atleast not the website designs)
