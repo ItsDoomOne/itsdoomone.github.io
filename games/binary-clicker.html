@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Binary Clicker</title>
+  <style>
+    body {
+      background: #111;
+      color: #fff;
+      font-family: monospace;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+      user-select: none;
+    }
+
+    h1 { margin-bottom: 10px; }
+
+    #grid {
+      display: grid;
+      grid-template-columns: repeat(5, 20px);
+      grid-template-rows: repeat(5, 20px);
+      gap: 4px;
+      margin-bottom: 20px;
+    }
+
+    .pixel {
+      width: 20px;
+      height: 20px;
+      background: #222;
+      border-radius: 3px;
+      transition: background 0.1s;
+    }
+
+    .on {
+      background: #0f0;
+    }
+
+    button {
+      margin: 5px;
+      padding: 5px 10px;
+      background: #333;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+
+    input {
+      margin: 5px;
+      padding: 4px;
+      width: 80px;
+      background: #000;
+      color: #0f0;
+      border: 1px solid #444;
+    }
+
+    #settings {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+    }
+
+    #settings button {
+      padding: 4px 8px;
+      font-size: 18px;
+    }
+
+    #settingsMenu {
+      display: none;
+      flex-direction: column;
+      align-items: flex-start;
+      margin-top: 10px;
+      background: #222;
+      padding: 10px;
+      border: 1px solid #555;
+      border-radius: 6px;
+    }
+
+    #settingsMenu.show {
+      display: flex;
+    }
+  </style>
+</head>
+<body>
+  <h1>Binary Clicker</h1>
+  <div id="grid"></div>
+
+  <button onclick="clickA()">Click (or press any key on the keyboard)</button>
+
+  <div id="settings">
+    <button onclick="toggleMenu()">⚙️</button>
+    <div id="settingsMenu">
+      <button onclick="exportValue()">EXPORT</button>
+      <input id="importInput" placeholder="Número" />
+      <button onclick="importValue()">IMPORT</button>
+    </div>
+  </div>
+
+  <script>
+    const grid = document.getElementById("grid");
+    const importInput = document.getElementById("importInput");
+    const settingsMenu = document.getElementById("settingsMenu");
+    let counter = parseInt(localStorage.getItem("counter") || "0");
+
+    // cria 25 pixels
+    for (let i = 0; i < 25; i++) {
+      const px = document.createElement("div");
+      px.classList.add("pixel");
+      grid.appendChild(px);
+    }
+
+    function updateDisplay() {
+      const pixels = [...grid.children];
+      for (let i = 0; i < 25; i++) {
+        const bit = (counter >> i) & 1;
+        const index = 24 - i;
+        pixels[index].className = "pixel" + (bit ? " on" : "");
+      }
+      localStorage.setItem("counter", counter);
+    }
+
+    function increment() {
+      counter++;
+      updateDisplay();
+    }
+
+    function clickA() {
+      increment();
+    }
+
+    function exportValue() {
+      alert("Valor atual: " + counter);
+    }
+
+    function importValue() {
+      const val = parseInt(importInput.value);
+      if (!isNaN(val) && val >= 0) {
+        counter = val;
+        updateDisplay();
+      } else {
+        alert("Invalid Number.");
+      }
+    }
+
+    function toggleMenu() {
+      settingsMenu.classList.toggle("show");
+    }
+
+    // qualquer tecla = clique
+    document.addEventListener("keydown", (e) => {
+      if (!settingsMenu.classList.contains("show")) {
+        increment();
+      }
+    });
+
+    updateDisplay();
+  </script>
+</body>
+</html>
