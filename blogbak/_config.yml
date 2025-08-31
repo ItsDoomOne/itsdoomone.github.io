@@ -1,0 +1,14 @@
+title: "Blog do leo"
+description: "Posto coisas mlem"
+theme: minima
+
+url: "https://doom.is-a.dev"
+baseurl: "/blog"
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+header_pages:
+  - about.md
+
