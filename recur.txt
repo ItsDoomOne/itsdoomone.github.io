@@ -1,0 +1,6 @@
+This file's only use is to test Spew. It is included in the third line of Spew's standard STFS file (Spew Format To Standard)
+This file will be used to test download through Python's module, and in the future, dotnet's capablities for making downloads.
+Spew is a DSL created by me, Leonardo H.S. to help my friends solve linux problems remotely and also to facilitate downloading stuff
+Spew is probably going to be used in the backend of Aspect's Aspect11 windows mod, once i port PySpew to C#.
+For that, i will need to finalize the standard and the actual program first.
+Never stop dreaming, yesterday I wasn't making this project. This could very well be my biggest project once i finish it.
