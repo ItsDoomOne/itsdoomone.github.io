@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta property="og:title" content="Doom's Hub" />
+  <meta property="og:description" content="About me, Doom" />
+  <meta property="og:image" content="/img/indexhtml.png" />
+  <meta property="og:url" content="https://doom.is-a.dev/" />
+  <base href="https://itsdoomone.github.io/">
+  <title>Doom's Page</title>
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <main class="container">
+    <nav class="language-selector" aria-label="Language switch">
+      <button data-lang="en" class="selected">english</button>
+      <span>|</span>
+      <button data-lang="pt" class="unselected">português</button>
+    </nav>
+
+    <h1 class="flames" id="flames-text">welcome to doom hub</h1>
+
+    <section class="rainbow-title">
+      <svg width="200" height="50" aria-hidden="true">
+        <defs>
+          <linearGradient id="rainbow" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#f00"/>
+            <stop offset="33%" stop-color="#0f0"/>
+            <stop offset="67%" stop-color="#00f"/>
+            <stop offset="100%" stop-color="#f00"/>
+          </linearGradient>
+        </defs>
+        <text x="45" y="35" fill="url(#rainbow)" font-family="Comic Sans MS" font-size="24" id="about-me-title">
+          about me
+        </text>
+      </svg>
+    </section>
+
+    <p id="about-me">im a programmer (python, learning c#), I really enjoy music and I'm always bored</p>
+
+    <section>
+      <h2 id="likes-title">i like:</h2>
+      <ul>
+        <li id="il1">💾 linux (i use arch btw)</li>
+        <li id="il2">🎮 minecraft, operius gx and the ultimate doom</li>
+        <li id="il3">🎵 jamiroquai, tally hall and femtanyl</li>
+        <li id="il4">📺 dexter</li>
+        <li id="il5">💾 commodore 64, commodore amiga, 486s and MS-DOS</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2 id="facts-title">little facts about me:</h2>
+      <ul>
+        <li id="lf1">i've been using linux since i was 8</li>
+        <li id="lf2">i'm literally always bored</li>
+        <li id="lf3">catholic</li>
+        <li id="lf4">im from brazil</li>
+        <li id="lf5">my biggest fear is the future</li>
+      </ul>
+    </section>
+
+    <section class="links">
+      <h2 id="links-title">links that i like to put in my page even though nobody cares about them, even me</h2>
+      <a href="https://github.com/ItsDoomOne" id="github-link">my github</a>
+      <a href="/music/index.html" id="my-music-blog">my music blog</a>
+      <a href="https://modrinth.com/user/doom_a." id="modrinth-link">my modrinth page</a>
+      <a href="https://www.youtube.com/watch?v=xvFZjo5PgG0" id="youtube-link">youtube channel</a>
+      <a href="https://leohacker.org/games/index.html" id="tog">games i've been working on</a>
+    </section>
+  </main>
+
+  <footer id="lt">i'm prolly reinstalling linux rn</footer>
+</body>
+</html>
