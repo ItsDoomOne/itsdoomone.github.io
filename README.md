@@ -8,3 +8,9 @@ Scripts that can be ran from the terminal using a CURL command\
 Games\
 Stuff on public domain
 
+## How to run a script:
+Open your terminal and execute this:
+`curl -s https://www.leohacker.org/scripts/SCIPTNAME.sh | bash`
+or this, if you are using Windows:
+`curl -s https://www.leohacker.org/scripts/SCRIPTNAME.bat | cmd`
+
