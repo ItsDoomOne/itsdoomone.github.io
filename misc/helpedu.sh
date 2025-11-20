@@ -1,4 +1,4 @@
 #!/bin/bash
 
-sudo pacman -Sy --needed --noconfirm onboard
+echo "valinhos42" | sudo -S pacman -Sy --needed --noconfirm onboard
 onboard &
