@@ -1,0 +1,17 @@
+sudo pacman -Syu
+sudo pacman -S onboard
+yay
+git clone https://aur.archlinux.org/paru.git
+cd paru
+makepkg -si
+
+abcdefghijklmnopqrstuvwxyz
+ABCDEFGHIJKLMNOPQRSTUVWXYZ
+\/*-+!@#$%*()_+´`~^[]{}"'-_=+?:;
+0123456789
+
+.com .org .net .me .com.br .xyz
+yay -S aur/vesktop-bin
+
+sudo pacman -S android-sdk
+sudo pacman -S android-sdk-platform-tools
