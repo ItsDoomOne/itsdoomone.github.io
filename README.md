@@ -1,6 +1,6 @@
-# Doom's personal website
+# My personal website
 
-This website was intended to mimic the style of 90s personal websites
+This website was intended to mimic the style of 90s personal websites, currently being moved to ReactJS in a separate repo.
 
 ## Repo Contents:
 Several Bible translations at /bible/ or at https://www.leohacker.org/bible \
